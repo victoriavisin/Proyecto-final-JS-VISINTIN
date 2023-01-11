@@ -1,0 +1,16 @@
+ [
+    {"imagen":"https://www.sportingplus.net/6854-thickbox_default/camiseta-de-futbol-seleccion-argentina-primera-201617-adidas.jpg" ,
+    "titulo": "producto1",
+    "precio": 200,
+    "id": 1},
+
+    {"imagen":"https://www.sportingplus.net/3384-thickbox_default/brasil-nacional-equipo-casa-camiseta-de-futbol-de-2014-15-nike.jpg",
+    "titulo": "producto2",
+    "precio": 150,
+    "id": 2},
+
+    {"imagen":"https://camisetasdefutbol.pe/wp-content/uploads/camiseta-color-celeste-1536x1536.jpg",
+    "titulo": "producto3",
+    "precio": 100,
+    "id": 3}
+]

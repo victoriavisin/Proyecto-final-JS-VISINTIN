@@ -2,12 +2,17 @@
 let todosLosProductos = document.querySelector (".productos");
 let contenedorCarrito = document.querySelector (".offcanvas-body");
 
+// ARRAY
 
 let comprarProductos = [];
 
 
 
 //FUNCIONES
+
+
+// Agregar productos del carrito
+
 loadEventListenrs ();
 function loadEventListenrs () {
     todosLosProductos.addEventListener("click", agregarProducto);
@@ -22,18 +27,21 @@ function agregarProducto (e) {
     
 }
 
+// Leer productos
+
 function leerContenido (producto) {
     const infoProducto = {
-        imagen: producto.querySelector (".card-img-top[src]"),
+        imagen: producto.querySelector (".imagen-item [src]"),
         titulo: producto.querySelector (".card-title").textContent,
         precio: producto.querySelector (".card-text").textContent,
         id: producto.querySelector ("#btn-add-cart").getAttribute ("data-id")
     }
     comprarProductos= [...comprarProductos, infoProducto]
     loadHtml();
-    console.log (infoProducto);
+    //console.log (infoProducto);
 }
 
+// Cargar los productos al carrito
 
 function loadHtml(){
     limpiarHTML ();
@@ -44,7 +52,7 @@ function loadHtml(){
         row.innerHTML = `
         <div class="cart-content text-center">
                       <div class="cart-box">
-                        <img src="./assets/${producto.imagen}" alt="">
+                      <img src="${producto.imagen}" alt="">
                         <div class="detail-box">
                           <div class="cart-title">${producto.titulo}</div>
                           <div class="cart-price">${producto.precio}</div>
@@ -57,19 +65,24 @@ function loadHtml(){
         `
        contenedorCarrito.appendChild (row);
        
+       
+       
     });
 
+
 }
+
+// Funcion para limpiar HTML
 
 
 function limpiarHTML () {
     contenedorCarrito.innerHTML = " ";
  }
  
+ // Eliminar productos del carrito
 
  contenedorCarrito.addEventListener("click", eliminarProducto);
 
- // Eliminar productos del carrito
  
  function eliminarProducto(e) {
    if (e.target.classList.contains("btn-delete")) {
@@ -78,5 +91,25 @@ function limpiarHTML () {
        (producto) => producto.id !== productoID
      );
      loadHtml();
+     
    }
  }
+
+ // Sumar total
+
+ function updateTotal () {
+  let total = 0;
+
+  const carritoTotal = document.querySelector (".total");
+
+  const carritoItems = document.querySelector (".productos");
+
+  carritoItems.forEach((itemCarrito) => {
+    const carritoPrecioElemento = carritoItems.querySelector (".card-text");
+
+    console.log (carritoTotal, carritoPrecioElemento)
+
+  });
+
+
+}
