@@ -16,4 +16,124 @@
     src: url(../assets/fonts/Roboto-Bold.ttf);
 }
 
+@font-face {
+    font-family: "monserrat";
+    src: url(../assets/fonts/Montserrat-Regular.ttf);
+}
+
+body {
+    background-color: black;
+    overflow-x: hidden;
+
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.418);
+    
+}
+
+main {
+    padding: 50px;
+}
+
+.nombre {
+    font-family: "zen" ;
+    color: orange;
+    
+}
+
+.imagen{
+    max-width:100%;
+}
+
+a{
+    cursor:pointer;
+}
+.alerta{
+    font-weight:700;
+}
+.card {
+
+    background-color: black;
+    margin-right: 30px;
+}
+
+.card-title {
+    text-align: center;
+    color: orange;
+    font-family: "zen";
+}
+.card-text {
+    text-align: center;
+    color: white;
+    font-family: "monserrat";
+}
+
+.card-text-desc {
+    font-size: 15px;
+    color: white;
+    font-family: "monserrat";
+}
+.card-img-top:hover {
+    border: 5px solid black;
+}
+
+.btn {
+    font-family: "monserrat";
+    text-align: center;
+}
+
+
+.modal-contenedor{
+    display:flex;
+    align-items: center;
+    gap:2rem;
+    font-family: "monserrat";
+}
+.img-carrito{
+    width:200px;
+    padding:20px;
+} 
+.modal-title {
+    text-align: center;
+    color: black;
+    font-family: "monserrat";
+}
+
+.modal-content{
+    background-color: orange;
+}
+.parrafo{
+    font-weight: 900;
+    font-style: italic;
+    text-decoration: none;
+    font-family: "monserrat";
+}
+#precioTotal{
+    margin:0;
+    padding:0;
+    font-family: "monserrat";
+}
+a{
+    text-decoration: none;
+}
+.boton{
+    opacity:0;
+}
+
+.close {
+    background-color: orange;
+    text-decoration: none;
+}
+
+
+.contacto {
+    font-family: "monserrat" ;
+    color: orange;
+}
+
+.col {
+    font-family: "monserrat" ;
+    color: orange;
+}
 

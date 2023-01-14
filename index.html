@@ -28,12 +28,12 @@
 
   <body>
      
-    <header>
+    <header class="sticky-top">
 
       <!---------------------------------NAV------------------------------------------->
 
       <nav class="navbar navbar-light bg-dark min-vw-100">
-        <h2 class="p-3 text-white">Xjuegos</h2>
+        <h2 class="nombre p-3"><span class=" fs-1">X</span>juegos</h2>
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#modal">
@@ -55,13 +55,8 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Carrito</h5>
-              <button
-                type="button"
-                class="close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              >
+              <h5 class="modal-title text-center"> Mi Carrito</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -88,6 +83,55 @@
         </div>
       </div>
     </div>
+
+
+
+    <footer class="footer mt-5 text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col col-lg-4">
+            <p class="nombre"><span class=" fs-1">X</span>juegos</p>
+            <p class="contacto"> +54 9 3514670089</p>
+            <p class="contacto"> consultas@xcasacas.com</p>
+          </div>
+          <div class="col col-lg-4">
+            
+            <div class="container">
+              <h2>FORMULARIO DE CONTACTO</h2>
+            </div>
+            
+            <form id="formulario" action="/redireccion">
+      
+              <div class="mb-3 text-center">
+                <label for="formGroupExampleInput" class="form-label"
+                >Nombre</label>
+                <input type="text" class="form-control" id="nombre" required/>
+              </div>
+              <div class="mb-3 text-center">
+                <label for="formGroupExampleInput2" class="form-label"
+                >Correo Electrónico</label>
+                <input type="text" class="form-control" id="correo" required/>
+              </div>
+              <div class="mb-3 text-center">
+                <label for="exampleFormControlTextarea1" class="form-label">Ingrese su consulta</label>
+                <input type="text" class="form-control" id="consulta" required/>
+                
+              </div>
+              <button type="submit" class="btn btn-warning text-center mb-3">
+                ENVIAR CONSULTA
+              </button>
+            </div>
+          </form>
+          <div class="col">
+            <div class="enviar"></div>
+          </div>
+    
+          
+        </div>
+      </div>
+
+    </footer>
+
 
     <!--------------------------------- SCRIPTS------------------------------------------->
 
