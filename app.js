@@ -134,7 +134,6 @@ stockProductos.forEach((prod) => {
       <h5 class="card-title">${nombre}</h5>
       <p class="card-text">Precio: $ ${precio}</p>
       <p class="card-text-desc">Descripcion: ${desc}</p>
-      <p class="card-text">Cantidad: ${cantidad}</p>
       <button class="btn btn-warning" onclick="agregarProducto(${id})">Comprar Producto</button>
     </div>
   </div>
