@@ -101,10 +101,9 @@ const stockProductos = [
   },
 
 ];
-
 // ARRAY VACIO 
 
-let carrito= [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // VARIABLES
 
@@ -116,12 +115,9 @@ const procesarCompra = document.querySelector("#procesarCompra");
 
 // GUARDAR EN JSON
 
-document.addEventListener ("DOMContentLoaded" , () => {
-  carrito =JSON.parce (localStorage.getItem ("carrito")) || []
-})
-
-
-
+ document.addEventListener ("DOMContentLoaded" , () => {
+ carrito =JSON.parce (localStorage.getItem ("carrito")) || []
+ })
 
  // AGREGO MIS PRODUCTOS AL HTML
 stockProductos.forEach((prod) => {
@@ -139,28 +135,39 @@ stockProductos.forEach((prod) => {
   </div>
     `;
   }
-});
+
+})
+
+
+
+
+
 
 function agregarProducto(id){ // AUMENTO CANTIDAD
-
+  
   const existe = carrito.some((prod) => prod.id === id)
-
+  
   if(existe) {
-      const prod = carrito.map (prod => {
-          if(prod.id === id) {
-              prod.cantidad++
-          }
-      })
+    const prod = carrito.map (prod => {
+      if(prod.id === id) {
+        prod.cantidad++
+      }
+    })
   } else {
-      const item =stockProductos.find((prod) => prod.id === id)
-      carrito.push(item)
-
+    const item =stockProductos.find((prod) => prod.id === id)
+    carrito.push(item)
+    
   }
-
+  
   mostrarCarrito()
   
-
 }
+
+
+
+
+
+
 
 // MOSTRAR PRODUCTOS EN MI CARRITO 
 
@@ -168,6 +175,7 @@ const mostrarCarrito = () => {
   const modalBody = document.querySelector (".modal-body")
 
   modalBody.innerHTML = " "
+
   
   carrito.forEach ((prod) => {
       const { id, nombre, precio, desc, img, cantidad } = prod;
@@ -185,7 +193,11 @@ const mostrarCarrito = () => {
       </div>
       
       `;
+      localStorage.setItem("carrito", JSON.stringify(carrito))
   })
+
+
+
 
 
 if (carrito.length === 0) { // MENSAJE AL CONSUMUDIDOR
@@ -199,10 +211,11 @@ if (carrito.length === 0) { // MENSAJE AL CONSUMUDIDOR
 
   carritoContenedor.textContent = carrito.length; // SUMATORIA DE PRODUCTOS
 
-  precioTotal.innerText = carrito.reduce ((acc, prod) => acc + prod.cantidad * prod.precio, 0)
+  precioTotal.innerText = carrito.reduce ((acc, prod) => acc + prod.cantidad * prod.precio, 0,)
 
 
   guardarStorage ()
+  
 
 }
 
@@ -221,11 +234,16 @@ vaciarCarrito.addEventListener ("click", () => {
   mostrarCarrito ();
 })
 
-// FUNCION DE GUARDAR EN STORARE
+// FUNCION DE GUARDAR EN STORAGE
 
 function guardarStorage () {
   localStorage.setItem("carrito", JSON.stringify(carrito))
+  
 }
+
+mostrarCarrito()
+
+JSON.parse(localStorage.getItem("carrito"))
 
 // FUNCION DE BOTON COMPRAR Y AGREGO ALERT DE LIBRERIA
 
@@ -249,6 +267,7 @@ if (procesarCompra) {
   });
 }
 
+ 
  //////////////////FORMULARIO/////////////
 
  //Creo variables
@@ -284,8 +303,5 @@ const pintarInfo = formulario.addEventListener("submit", function (e) {
   <div class="alert alert-warning" role="alert">
 <h5> Muchas gracias ${nombreFormulario.value} por su consulta, te responderemos a ${correoFormulario.value} a la brevedad.</h5></div>`;
 });
-
- 
- 
 
  
