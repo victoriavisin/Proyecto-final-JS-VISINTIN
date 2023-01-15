@@ -1,106 +1,106 @@
 
-// STOCK DE PRODUCTOS 
+// // STOCK DE PRODUCTOS 
 
-const stockProductos = [
-  {
-    id: 1,
-    nombre: "GTA 5",
-    cantidad: 1,
-    desc: "Acción/Aventura",
-    precio: 7000,
-    img: "assets/image/gta5.jpg",
-  },
-  {
-    id: 2,
-    nombre: "God of War",
-    cantidad: 1,
-    desc: "Acción/Aventura",
-    precio: 10000,
-    img: "assets/image/gow.jpg",
-  },
-  {
-    id: 3,
-    nombre: "HALO",
-    cantidad: 1,
-    desc: "Ciencia Ficción",
-    precio: 6500,
-    img: "assets/image/halo.jpg",
-  },
+// const stockProductos = [
+//   {
+//     id: 1,
+//     nombre: "GTA 5",
+//     cantidad: 1,
+//     desc: "Acción/Aventura",
+//     precio: 7000,
+//     img: "assets/image/gta5.jpg",
+//   },
+//   {
+//     id: 2,
+//     nombre: "God of War",
+//     cantidad: 1,
+//     desc: "Acción/Aventura",
+//     precio: 10000,
+//     img: "assets/image/gow.jpg",
+//   },
+//   {
+//     id: 3,
+//     nombre: "HALO",
+//     cantidad: 1,
+//     desc: "Ciencia Ficción",
+//     precio: 6500,
+//     img: "assets/image/halo.jpg",
+//   },
   
-  {
-    id: 4,
-    nombre: "Call Of Duty",
-    cantidad: 1,
-    desc: "Disparos en primera persona",
-    precio: 9200,
-    img: "assets/image/cod.jpg",
-  },
-  {
-    id: 5,
-    nombre: "FIFA 2023",
-    cantidad: 1,
-    desc: "Deportes",
-    precio: 17000,
-    img: "assets/image/fifa23.jpg",
-  },
-  {
-    id: 6,
-    nombre: "DETROIT",
-    cantidad: 1,
-    desc: "Ciencia Ficción",
-    precio: 6000,
-    img: "assets/image/detroit.jpg",
-  },
-  {
-    id: 7,
-    nombre: "Last Of Us",
-    cantidad: 1,
-    desc: "Ciencia Ficción",
-    precio: 8000,
-    img: "assets/image/lou.jpg",
-  },
-  {
-    id: 8,
-    nombre: "Red Dead Redemption 2",
-    cantidad: 1,
-    desc: "Acción/Aventura",
-    precio: 5200,
-    img: "assets/image/rdr2.jpg",
-  },
-  {
-    id: 9,
-    nombre: "Sims",
-    cantidad: 1,
-    desc: "Simulación Social",
-    precio: 4500,
-    img: "assets/image/sims.jpg",
-  },
-  {
-    id: 10,
-    nombre: "Uncharted 4",
-    cantidad: 1,
-    desc: "Ciencia Ficción",
-    precio: 11000,
-    img: "assets/image/uncharted4.jpg",
-  },
-  {
-    id: 11,
-    nombre: "Elden Ring",
-    cantidad: 1,
-    desc: "RPG",
-    precio: 9000,
-    img: "assets/image/elden.jpg",
-  },
-  {
-    id: 12,
-    nombre: "Mortal Kombat",
-    cantidad: 1,
-    desc: "Lucha",
-    precio: 13000,
-    img: "assets/image/mortal.jpg",
-  },
+//   {
+//     id: 4,
+//     nombre: "Call Of Duty",
+//     cantidad: 1,
+//     desc: "Disparos en primera persona",
+//     precio: 9200,
+//     img: "assets/image/cod.jpg",
+//   },
+//   {
+//     id: 5,
+//     nombre: "FIFA 2023",
+//     cantidad: 1,
+//     desc: "Deportes",
+//     precio: 17000,
+//     img: "assets/image/fifa23.jpg",
+//   },
+//   {
+//     id: 6,
+//     nombre: "DETROIT",
+//     cantidad: 1,
+//     desc: "Ciencia Ficción",
+//     precio: 6000,
+//     img: "assets/image/detroit.jpg",
+//   },
+//   {
+//     id: 7,
+//     nombre: "Last Of Us",
+//     cantidad: 1,
+//     desc: "Ciencia Ficción",
+//     precio: 8000,
+//     img: "assets/image/lou.jpg",
+//   },
+//   {
+//     id: 8,
+//     nombre: "Red Dead Redemption 2",
+//     cantidad: 1,
+//     desc: "Acción/Aventura",
+//     precio: 5200,
+//     img: "assets/image/rdr2.jpg",
+//   },
+//   {
+//     id: 9,
+//     nombre: "Sims",
+//     cantidad: 1,
+//     desc: "Simulación Social",
+//     precio: 4500,
+//     img: "assets/image/sims.jpg",
+//   },
+//   {
+//     id: 10,
+//     nombre: "Uncharted 4",
+//     cantidad: 1,
+//     desc: "Ciencia Ficción",
+//     precio: 11000,
+//     img: "assets/image/uncharted4.jpg",
+//   },
+//   {
+//     id: 11,
+//     nombre: "Elden Ring",
+//     cantidad: 1,
+//     desc: "RPG",
+//     precio: 9000,
+//     img: "assets/image/elden.jpg",
+//   },
+//   {
+//     id: 12,
+//     nombre: "Mortal Kombat",
+//     cantidad: 1,
+//     desc: "Lucha",
+//     precio: 13000,
+//     img: "assets/image/mortal.jpg",
+//   },
 
-];
+// ];
 // ARRAY VACIO 
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -118,7 +118,9 @@ const procesarCompra = document.querySelector("#procesarCompra");
  document.addEventListener ("DOMContentLoaded" , () => {
  carrito =JSON.parce (localStorage.getItem ("carrito")) || []
  })
-
+ fetch("./datos.json")
+ .then((res) => res.json())
+ .then((stockProductos) => {
  // AGREGO MIS PRODUCTOS AL HTML
 stockProductos.forEach((prod) => {
   const { id, nombre, precio, desc, img, cantidad } = prod;
@@ -135,8 +137,9 @@ stockProductos.forEach((prod) => {
   </div>
     `;
   }
-
 })
+})
+
 
 
 
@@ -194,11 +197,11 @@ const mostrarCarrito = () => {
       
       `;
       localStorage.setItem("carrito", JSON.stringify(carrito))
-  })
+    })
 
-
-
-
+  
+    
+    
 
 if (carrito.length === 0) { // MENSAJE AL CONSUMUDIDOR
   console.log("Nada");
@@ -209,9 +212,9 @@ if (carrito.length === 0) { // MENSAJE AL CONSUMUDIDOR
   console.log("Algo");
 }
 
-  carritoContenedor.textContent = carrito.length; // SUMATORIA DE PRODUCTOS
+carritoContenedor.textContent = carrito.length; // SUMATORIA DE PRODUCTOS
 
-  precioTotal.innerText = carrito.reduce ((acc, prod) => acc + prod.cantidad * prod.precio, 0,)
+precioTotal.innerText = carrito.reduce ((acc, prod) => acc + prod.cantidad * prod.precio, 0,)
 
 
   guardarStorage ()
@@ -267,8 +270,9 @@ if (procesarCompra) {
   });
 }
 
+
  
- //////////////////FORMULARIO/////////////
+//////////////////FORMULARIO/////////////
 
  //Creo variables
 let nombreFormulario = document.querySelector("#nombre");
